@@ -92,7 +92,7 @@ Example类, `selectByExample`, `updateByExample`等方法更名。 `Example` -> 
 
 ### 【XML-CLIENT】MinMaxPlugin
 根据`table`的配置增加`min{fieldId}ByExample`, `max{fieldId}ByExample`等方法。如需得到改名
-插件作用。需讲此插件声明在改名插件之后。
+插件作用。需讲此插件声明在改名插件之后。不支持mapper基类。
 
 配置
 
@@ -119,4 +119,29 @@ Example类, `selectByExample`, `updateByExample`等方法更名。 `Example` -> 
             <property name="optimisticLockColumn" value="VERSION"/>
             <generatedKey column="ID" sqlStatement="MySql" identity="true" />
         </table>
+```
+
+### 【XML-CLIENT】BaseMapperPlugin
+生成mapper的基类`BaseMapper<T, E, PK extends Serializable>`和sql mapper的xml文件`manual/TableTestSliceModMapper.xml`
+人工手写的sql可以放入子类mapper和`manual`目录下的sql mapper xml文件当中。
+
+配置
+```
+<plugin type="com.zhangj.mybatis.generator.ext.plugins.BaseMapperPlugin"/>
+```
+
+生成结果示例
+
+```
+目录结构
+java
+  - mapper
+    - base
+        - BaseMapper
+    TableTestSliceMonthMapper
+  - resources
+    - mapping
+        - manual
+            - TableTestSliceMonthMapper.xml
+        - TableTestSliceMonthMapper.xml
 ```

@@ -21,6 +21,7 @@
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.PaginationExamplePlugin"/>
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.ExampleRenamePlugin"/>
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.MinMaxPlugin"/>
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.BaseMapperPlugin"/>
 
 
         <!--去除注释, 为entity增加数据库字段注释-->
@@ -50,13 +51,17 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
+        <table tableName="TABLE_TEST_SLICE_MOD" domainObjectName="TableTestSliceMod">
+            <property name="optimisticLockColumn" value="VERSION"/>
+            <generatedKey column="ID" sqlStatement="MySql" identity="true" />
+        </table>
 
         <table tableName="TABLE_TEST_SLICE_MONTH" domainObjectName="TableTestSliceMonth">
             <property name="maxColumns" value="JACKSON_ID1,JACKSON_ID2"/>
             <property name="minColumns" value="JACKSON_ID1,JACKSON_ID2"/>
-            <property name="sumCol" value=""/>
             <property name="optimisticLockColumn" value="VERSION"/>
             <generatedKey column="ID" sqlStatement="MySql" identity="true" />
         </table>
+
     </context>
 </generatorConfiguration>

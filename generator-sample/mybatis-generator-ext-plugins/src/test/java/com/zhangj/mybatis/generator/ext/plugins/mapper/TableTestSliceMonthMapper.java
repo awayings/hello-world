@@ -1,34 +1,11 @@
 package com.zhangj.mybatis.generator.ext.plugins.mapper;
 
+import com.zhangj.mybatis.generator.ext.plugins.mapper.base.BaseMapper;
 import com.zhangj.mybatis.generator.ext.plugins.model.TableTestSliceMonthEntity;
 import com.zhangj.mybatis.generator.ext.plugins.model.TableTestSliceMonthFilter;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface TableTestSliceMonthMapper {
-    long countByFilter(TableTestSliceMonthFilter example);
-
-    int deleteByFilter(TableTestSliceMonthFilter example);
-
-    int insert(TableTestSliceMonthEntity record);
-
-    int insertSelective(TableTestSliceMonthEntity record);
-
-    List<TableTestSliceMonthEntity> selectByFilter(TableTestSliceMonthFilter example);
-
-    int updateByFilterSelective(@Param("record") TableTestSliceMonthEntity record, @Param("example") TableTestSliceMonthFilter example);
-
-    int updateByFilter(@Param("record") TableTestSliceMonthEntity record, @Param("example") TableTestSliceMonthFilter example);
-
-    Long sumByFilter(TableTestSliceMonthFilter example);
-
-    void batchInsert(@Param("items") List<TableTestSliceMonthEntity> items);
-
-    Long minJacksonId1ByFilter(TableTestSliceMonthFilter example);
-
-    String minJacksonId2ByFilter(TableTestSliceMonthFilter example);
-
-    Long maxJacksonId1ByFilter(TableTestSliceMonthFilter example);
-
-    String maxJacksonId2ByFilter(TableTestSliceMonthFilter example);
+public interface TableTestSliceMonthMapper extends BaseMapper<TableTestSliceMonthEntity, TableTestSliceMonthFilter, Integer> {
+    Integer countA();
 }

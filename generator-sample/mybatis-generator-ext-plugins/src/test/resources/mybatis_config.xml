@@ -50,6 +50,7 @@
         <!-- 用户测试XML -->
         <!--<mapper resource="mapping/TableTestSliceModMapper.xml" />-->
         <mapper resource="mapping/TableTestSliceMonthMapper.xml" />
+        <mapper resource="mapping/manual/TableTestSliceMonthMapper.xml" />
     </mappers>
 
 </configuration>

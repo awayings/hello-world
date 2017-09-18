@@ -72,6 +72,6 @@ public class MapperTest {
 
         System.out.println(mapper.minJacksonId1ByFilter(filter));
 
-
+        System.out.println(mapper.countA());
     }
 }

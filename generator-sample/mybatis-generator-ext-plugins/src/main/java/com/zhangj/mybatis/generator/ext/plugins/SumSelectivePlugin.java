@@ -80,4 +80,5 @@ public class SumSelectivePlugin extends PluginAdapter
             "      <include refid=\"{3}\" />\n" +
             "    </if>\n" +
             "  </select>";
+
 }
