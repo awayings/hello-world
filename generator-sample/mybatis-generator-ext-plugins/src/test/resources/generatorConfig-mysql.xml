@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+        <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
+        <!--<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>-->
+        <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.SliceTablePlugin"/>-->
+        <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.JacksonAnnotationPlugin"/>-->
+        <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.JacksonToJsonPlugin"/>-->
+        <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.UpdateSqlTextOfUpdateSelectivePlugin"/>-->
+        <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.WhereSqlTextPlugin"/>-->
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.SumSelectivePlugin"/>
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.OptimisticLockAutoIncreasePlugin"/>
+
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.BatchInsertPlugin"/>
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.LombokAnnotationPlugin"/>
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.ModelNamePlugin"/>
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.PaginationExamplePlugin"/>
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.ExampleRenamePlugin"/>
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.MinMaxPlugin"/>
+
+
+        <!--去除注释, 为entity增加数据库字段注释-->
+        <commentGenerator type="com.zhangj.mybatis.generator.ext.plugins.DatabaseCommentGenerator"/>
+
+
+        <!--数据库连接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/test"
+                        userId="root"
+                        password="">
+        </jdbcConnection>
+
+        <!--生成实体类 指定包名-->
+        <javaModelGenerator targetPackage="com.zhangj.mybatis.generator.ext.plugins.model"
+                            targetProject="src/test/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成SQLMAP文件-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/test/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!--生成Dao文件 type属性和父节点的属性targetRuntime="MyBatis3"对应-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zhangj.mybatis.generator.ext.plugins.mapper"
+                             targetProject="src/test/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+
+        <table tableName="TABLE_TEST_SLICE_MONTH" domainObjectName="TableTestSliceMonth">
+            <property name="maxColumns" value="JACKSON_ID1,JACKSON_ID2"/>
+            <property name="minColumns" value="JACKSON_ID1,JACKSON_ID2"/>
+            <property name="sumCol" value=""/>
+            <property name="optimisticLockColumn" value="VERSION"/>
+            <generatedKey column="ID" sqlStatement="MySql" identity="true" />
+        </table>
+    </context>
+</generatorConfiguration>

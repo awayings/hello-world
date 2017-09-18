@@ -22,7 +22,7 @@ public class PerformanceUtil
     public static void main(String[] args)
     {
         elapsed(() -> {
-            for (Integer i = 0; i < Integer.valueOf(1000); i++)
+            for (Integer i = 0; i < Integer.valueOf(1); i++)
             {
                 Thread a = new Thread();
             }

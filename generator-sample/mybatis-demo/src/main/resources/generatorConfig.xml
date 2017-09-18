@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="generator.properties" />
+
+    <context id="context1" targetRuntime="MyBatis3">
+        <!-- 生成的pojo，将implements Serializable-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--数据库信息-->
+        <jdbcConnection driverClass="${jdbc.driverClassName}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}" />
+
+        <!--默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer,true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.ygg.admin.entity" targetProject="src/main/java">
+            <!--是否允许根据catalog and schema生成子包-->
+            <property name="enableSubPackages" value="true"/>
+        </javaModelGenerator>
+
+        <!--对应的mapper.xml文件  -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <!--是否允许根据catalog and schema生成子包-->
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 对应的Mapper接口类文件 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ygg.admin.dao" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="base_goods" domainObjectName="ProductSourceSellerEntity"
+               modelType="flat"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true" >
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
