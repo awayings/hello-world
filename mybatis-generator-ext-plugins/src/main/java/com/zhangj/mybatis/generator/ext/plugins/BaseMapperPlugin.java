@@ -24,7 +24,7 @@ public class BaseMapperPlugin extends PluginAdapter
     private static final String DOT = ".";
     private static ConcurrentHashMap<String, Boolean> concurrentRun = new ConcurrentHashMap<>();
     private String baseMapperPackage = null;
-    private String baseMapperType = "BaseMapper<T, E, PK extends Serializable>";
+    private String baseMapperType = "BaseMapper<T, E>";
     private String originalMapperNameSpace = null;
     private String originalJavaMapperType;
 
@@ -98,6 +98,8 @@ public class BaseMapperPlugin extends PluginAdapter
         abstractGenerator.setWarnings(new ArrayList<>());
 
         introspectedTable.setMyBatis3JavaMapperType(constructBaseMapperName(introspectedTable.getMyBatis3JavaMapperType()));
+        introspectedTable.setExampleType("E");
+        introspectedTable.setBaseRecordType("T");
 
         // 插件的clientGenerated会在getCompilationUnits当中调用, 增加参数区分不同的文件生成。
         concurrentRun.put(introspectedTable.getMyBatis3JavaMapperType(), true);
@@ -144,7 +146,7 @@ public class BaseMapperPlugin extends PluginAdapter
             introspectedTable.getMyBatis3XmlMapperFileName(), // 文件名相同
             introspectedTable.getMyBatis3XmlMapperPackage() + ".manual",  // 增加generated属性
             context.getSqlMapGeneratorConfiguration().getTargetProject(),
-            false, context.getXmlFormatter());
+            true, context.getXmlFormatter());
 
         List<GeneratedXmlFile> answers = new ArrayList<GeneratedXmlFile>(1);
         answers.add(gxf);
@@ -165,14 +167,14 @@ public class BaseMapperPlugin extends PluginAdapter
         if (concurrentRun.containsKey(introspectedTable.getMyBatis3JavaMapperType()))
         {
             // 生成BaseMapper
-            FullyQualifiedJavaType imp = new FullyQualifiedJavaType("java.io.Serializable");
-            interfaze.addImportedType(imp);
+//            FullyQualifiedJavaType imp = new FullyQualifiedJavaType("java.io.Serializable");
+//            interfaze.addImportedType(imp);
             return true;
         }else
         {
             // 生成表对应的Mapper子类
             FullyQualifiedJavaType fqjt =
-                new FullyQualifiedJavaType("BaseMapper<" + introspectedTable.getBaseRecordType() + "," + introspectedTable.getExampleType() + "," + "java.lang.Integer" + ">");
+                new FullyQualifiedJavaType("BaseMapper<" + introspectedTable.getBaseRecordType() + "," + introspectedTable.getExampleType() + ">");
 
             FullyQualifiedJavaType imp = new FullyQualifiedJavaType(constructBaseMapperPackage(originalJavaMapperType) + DOT + "BaseMapper");
 

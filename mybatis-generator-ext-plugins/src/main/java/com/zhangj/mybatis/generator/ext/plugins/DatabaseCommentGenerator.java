@@ -23,7 +23,7 @@ public class DatabaseCommentGenerator extends DefaultCommentGenerator
     
     private boolean skipFieldComment = true;
     
-    private boolean skipXmlComment = true;
+    private boolean skipXmlComment = false;
     
     private boolean skipEnumComment = true;
     
@@ -141,9 +141,12 @@ public class DatabaseCommentGenerator extends DefaultCommentGenerator
         skipClassComment = isFalse(properties.getProperty("skipClassComment"));
         skipJavaFileComment = isFalse(properties.getProperty("skipJavaFileComment"));
         skipFieldComment = isFalse(properties.getProperty("skipFieldComment"));
-        skipXmlComment = isFalse(properties.getProperty("skipXmlComment"));
+        skipXmlComment = isTrue(properties.getProperty("skipXmlComment"));
         skipEnumComment = isFalse(properties.getProperty("skipEnumComment"));
         skipGetterSetterComment = isFalse(properties.getProperty("skipGetterSetterComment"));
+
+        PluginUtils.SKIP_XML_COMMENT = skipXmlComment;
+
     }
     
     protected boolean isFalse(String s)

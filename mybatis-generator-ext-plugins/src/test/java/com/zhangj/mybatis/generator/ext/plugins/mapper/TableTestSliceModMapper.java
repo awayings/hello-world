@@ -6,5 +6,5 @@ import com.zhangj.mybatis.generator.ext.plugins.model.TableTestSliceModFilter;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface TableTestSliceModMapper extends BaseMapper<TableTestSliceModEntity, TableTestSliceModFilter, Integer> {
+public interface TableTestSliceModMapper extends BaseMapper<TableTestSliceModEntity, TableTestSliceModFilter> {
 }

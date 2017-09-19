@@ -6,5 +6,5 @@ import com.zhangj.mybatis.generator.ext.plugins.model.TableTestSliceMonthFilter;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface TableTestSliceMonthMapper extends BaseMapper<TableTestSliceMonthEntity, TableTestSliceMonthFilter, Integer> {
+public interface TableTestSliceMonthMapper extends BaseMapper<TableTestSliceMonthEntity, TableTestSliceMonthFilter> {
 }

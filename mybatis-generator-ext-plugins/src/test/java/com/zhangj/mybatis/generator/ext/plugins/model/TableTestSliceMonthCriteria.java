@@ -11,8 +11,6 @@ public class TableTestSliceMonthCriteria {
 
     protected List<Criteria> oredCriteria;
 
-    private String sumCol;
-
     private Integer startIndex;
 
     private Integer pageSize;
@@ -68,52 +66,8 @@ public class TableTestSliceMonthCriteria {
         oredCriteria.clear();
         orderByClause = null;
         distinct = false;
-        this.sumCol = null;
         this.startIndex = null;
         this.pageSize = null;
-    }
-
-    public String getSumCol() {
-        return this.sumCol;
-    }
-
-    public void setSumCol(String sumCol) {
-        this.sumCol = sumCol;
-    }
-
-    public TableTestSliceMonthCriteria sumId() {
-        this.sumCol="ID";
-        return this;
-    }
-
-    public TableTestSliceMonthCriteria sumSliceMonthId() {
-        this.sumCol="SLICE_MONTH_ID";
-        return this;
-    }
-
-    public TableTestSliceMonthCriteria sumJacksonId1() {
-        this.sumCol="JACKSON_ID1";
-        return this;
-    }
-
-    public TableTestSliceMonthCriteria sumVersion() {
-        this.sumCol="VERSION";
-        return this;
-    }
-
-    public TableTestSliceMonthCriteria sumJacksonId2() {
-        this.sumCol="JACKSON_ID2";
-        return this;
-    }
-
-    public TableTestSliceMonthCriteria sumJacksonTime() {
-        this.sumCol="JACKSON_TIME";
-        return this;
-    }
-
-    public TableTestSliceMonthCriteria sumCouldSumCol() {
-        this.sumCol="COULD_SUM_COL";
-        return this;
     }
 
     public Integer getStartIndex() {

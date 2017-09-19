@@ -11,8 +11,6 @@ public class TableTestSliceModFilter {
 
     protected List<Criteria> oredCriteria;
 
-    private String sumCol;
-
     private Integer startIndex;
 
     private Integer pageSize;
@@ -68,52 +66,8 @@ public class TableTestSliceModFilter {
         oredCriteria.clear();
         orderByClause = null;
         distinct = false;
-        this.sumCol = null;
         this.startIndex = null;
         this.pageSize = null;
-    }
-
-    public String getSumCol() {
-        return this.sumCol;
-    }
-
-    public void setSumCol(String sumCol) {
-        this.sumCol = sumCol;
-    }
-
-    public TableTestSliceModFilter sumId() {
-        this.sumCol="ID";
-        return this;
-    }
-
-    public TableTestSliceModFilter sumSliceModId() {
-        this.sumCol="SLICE_MOD_ID";
-        return this;
-    }
-
-    public TableTestSliceModFilter sumJacksonId1() {
-        this.sumCol="JACKSON_ID1";
-        return this;
-    }
-
-    public TableTestSliceModFilter sumJacksonId2() {
-        this.sumCol="JACKSON_ID2";
-        return this;
-    }
-
-    public TableTestSliceModFilter sumJacksonTime() {
-        this.sumCol="JACKSON_TIME";
-        return this;
-    }
-
-    public TableTestSliceModFilter sumCouldSumCol() {
-        this.sumCol="COULD_SUM_COL";
-        return this;
-    }
-
-    public TableTestSliceModFilter sumVersion() {
-        this.sumCol="VERSION";
-        return this;
     }
 
     public Integer getStartIndex() {

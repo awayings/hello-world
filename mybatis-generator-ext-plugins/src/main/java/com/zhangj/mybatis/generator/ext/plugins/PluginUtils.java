@@ -16,6 +16,7 @@ public abstract class PluginUtils
     public static String BY_EXAMPLE = "ByExample";
     public static String EXAMPLE = "Example";
     public static String Example= "example";
+    public static boolean SKIP_XML_COMMENT = false;
 
     public static void addProperty(String field, FullyQualifiedJavaType fieldType, TopLevelClass topLevelClass, Context context, String tableName) {
         for (Method method : topLevelClass.getMethods()) {

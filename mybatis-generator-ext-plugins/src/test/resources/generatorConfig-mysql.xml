@@ -12,8 +12,9 @@
         <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.JacksonToJsonPlugin"/>-->
         <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.UpdateSqlTextOfUpdateSelectivePlugin"/>-->
         <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.WhereSqlTextPlugin"/>-->
-        <plugin type="com.zhangj.mybatis.generator.ext.plugins.SumSelectivePlugin"/>
-        <plugin type="com.zhangj.mybatis.generator.ext.plugins.OptimisticLockAutoIncreasePlugin"/>
+        <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.SumSelectivePlugin"/>-->
+        <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.MinMaxPlugin"/>-->
+        <!--<plugin type="com.zhangj.mybatis.generator.ext.plugins.OptimisticLockAutoIncreasePlugin"/>-->
 
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.BatchInsertPlugin"/>
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.LombokAnnotationPlugin"/>
@@ -23,7 +24,6 @@
             <!--<property name="classMethodReplaceString" value="Criteria"/>-->
             <!--<property name="parameterReplaceString" value="criteria"/>-->
         </plugin>
-        <plugin type="com.zhangj.mybatis.generator.ext.plugins.MinMaxPlugin"/>
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.BaseMapperPlugin">
             <property name="baseMapperPackage" value="com.zhangj.mybatis.generator.ext.plugins.base"/>
         </plugin>
@@ -57,12 +57,12 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table tableName="TABLE_TEST_SLICE_MOD" domainObjectName="TableTestSliceMod">
+        <table tableName="TABLE_TEST_SLICE_MOD" domainObjectName="TableTestSliceMod" enableSelectByPrimaryKey="true">
             <property name="optimisticLockColumn" value="VERSION"/>
             <generatedKey column="ID" sqlStatement="MySql" identity="true" />
         </table>
 
-        <table tableName="TABLE_TEST_SLICE_MONTH" domainObjectName="TableTestSliceMonth">
+        <table tableName="TABLE_TEST_SLICE_MONTH" domainObjectName="TableTestSliceMonth" enableSelectByPrimaryKey="true" enableDeleteByPrimaryKey="true">
             <property name="maxColumns" value="JACKSON_ID1,JACKSON_ID2"/>
             <property name="minColumns" value="JACKSON_ID1,JACKSON_ID2"/>
             <property name="optimisticLockColumn" value="VERSION"/>
