@@ -19,7 +19,10 @@
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.LombokAnnotationPlugin"/>
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.ModelNamePlugin"/>
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.PaginationExamplePlugin"/>
-        <plugin type="com.zhangj.mybatis.generator.ext.plugins.ExampleRenamePlugin"/>
+        <plugin type="com.zhangj.mybatis.generator.ext.plugins.ExampleRenamePlugin">
+            <!--<property name="classMethodReplaceString" value="Criteria"/>-->
+            <!--<property name="parameterReplaceString" value="criteria"/>-->
+        </plugin>
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.MinMaxPlugin"/>
         <plugin type="com.zhangj.mybatis.generator.ext.plugins.BaseMapperPlugin">
             <property name="baseMapperPackage" value="com.zhangj.mybatis.generator.ext.plugins.base"/>

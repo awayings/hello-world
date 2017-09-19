@@ -10,15 +10,25 @@ import org.mybatis.generator.api.PluginAdapter;
  */
 public class ExampleRenamePlugin extends PluginAdapter
 {
+    public static final String CLASS_SEARCH_PROPERTY = "classMethodSearchString";
+    public static final String CLASS_REPLACE_PROPERTY = "classMethodReplaceString";
+    public static final String PARAM_SEARCH_PROPERTY = "parameterSearchString";
+    public static final String PARAM_REPLACE_PROPERTY = "parameterReplaceString";
+
+    public String CLASS_NAME = "Example";
+    public String PARAM_NAME = "example";
+    public String CLASS_REPLACE_NAME = "Filter";
+    public String PARAM_REPLACE_NAME = "filter";
+
     private String replaceExample(String oldStr)
     {
         if (oldStr != null)
         {
-            return oldStr.replace("Example", "Filter");
+            return oldStr.replace(CLASS_NAME, CLASS_REPLACE_NAME);
         }
-        if (oldStr.equals("example"))
+        if (oldStr.equals(PARAM_NAME))
         {
-            return "filter";
+            return PARAM_REPLACE_NAME;
         }
         return null;
     }
@@ -46,6 +56,11 @@ public class ExampleRenamePlugin extends PluginAdapter
     @Override
     public boolean validate(List<String> warnings)
     {
+        CLASS_NAME = properties.getProperty(CLASS_SEARCH_PROPERTY, CLASS_NAME);
+        PARAM_NAME = properties.getProperty(PARAM_SEARCH_PROPERTY, PARAM_NAME);
+        CLASS_REPLACE_NAME = properties.getProperty(CLASS_REPLACE_PROPERTY, CLASS_REPLACE_NAME);
+        PARAM_REPLACE_NAME = properties.getProperty(PARAM_REPLACE_PROPERTY, PARAM_REPLACE_NAME);
+
         return true;
     }
 }
