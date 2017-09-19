@@ -34,7 +34,7 @@ public class PaginationExamplePlugin extends PluginAdapter
         method.addBodyLine("return this;");
         method.addParameter(new Parameter(FullyQualifiedJavaType.getIntInstance(), "startIndex"));
         method.addParameter(new Parameter(FullyQualifiedJavaType.getIntInstance(), "pageSize"));
-        PluginUtils.addDoc(this.getContext(), method, tableName);
+        //PluginUtils.addDoc(this.getContext(), method, tableName);
         topLevelClass.getMethods().add(method);
 
         System.out.println("-----------------" + topLevelClass.getType().getShortName() + " add method=page for pagination.");
