@@ -92,7 +92,7 @@ Example类, `selectByExample`, `updateByExample`等方法更名。 `Example` -> 
 
 ### 【XML-CLIENT】MinMaxPlugin
 根据`table`的配置增加`min{fieldId}ByExample`, `max{fieldId}ByExample`等方法。如需得到改名
-插件作用。需讲此插件声明在改名插件之后。不支持mapper基类。
+插件作用。需讲此插件声明在改名插件之后。不支持`BaseMapperPlugin`插件。
 
 配置
 
@@ -127,7 +127,10 @@ Example类, `selectByExample`, `updateByExample`等方法更名。 `Example` -> 
 
 配置
 ```
-<plugin type="com.zhangj.mybatis.generator.ext.plugins.BaseMapperPlugin"/>
+<plugin type="com.zhangj.mybatis.generator.ext.plugins.BaseMapperPlugin">
+    <!-- 指定BaseMapper的包名, 不指定时默认为生成java mapper同级的base包内。 -->
+    <property name="baseMapperPackage" value="com.zhangj.mybatis.generator.ext.plugins.base"/>
+</plugin>
 ```
 
 生成结果示例
@@ -145,3 +148,4 @@ java
             - TableTestSliceMonthMapper.xml
         - TableTestSliceMonthMapper.xml
 ```
+
