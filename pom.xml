@@ -11,7 +11,7 @@
 
     <modules>
         <module>common-utils</module>
-        <module>generator-sample</module>
+        <module>mybatis-generator-ext-plugins</module>
     </modules>
 
 
