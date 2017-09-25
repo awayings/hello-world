@@ -167,8 +167,6 @@ public class BaseMapperPlugin extends PluginAdapter
         if (concurrentRun.containsKey(introspectedTable.getMyBatis3JavaMapperType()))
         {
             // 生成BaseMapper
-//            FullyQualifiedJavaType imp = new FullyQualifiedJavaType("java.io.Serializable");
-//            interfaze.addImportedType(imp);
             return true;
         }else
         {
@@ -184,6 +182,9 @@ public class BaseMapperPlugin extends PluginAdapter
 
             interfaze.getMethods().clear();
             interfaze.getAnnotations().clear();
+
+            interfaze.addAnnotation("@Repository");
+            interfaze.addImportedType(new FullyQualifiedJavaType("org.springframework.stereotype.Repository"));
         }
 
         return true;
