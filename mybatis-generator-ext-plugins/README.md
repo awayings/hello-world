@@ -19,7 +19,7 @@
     * comments
     * separate manual/generated
     * batchInsert
-    * example limit, offset
+    * example 增加分页 startIndex, pageSize
     * example rename
 * entity
     * lombok
@@ -29,8 +29,8 @@
 用法
 
 ### 【实体-XML-CLIENT】DatabaseCommentGenerator
-配置文件中增加如下配置。 注意: xml文件当中去除了`@MBP generated` 注释之后, MBP讲无法判断重复生成的情况
-需要重新生成。
+配置文件中增加如下配置。 注意: xml文件当中去除了`@MBP generated` 注释之后, MBP讲无法做合并的去重判断。故默认为xml文件当中的
+注释不去除。
 
 
 ```
