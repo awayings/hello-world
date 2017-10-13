@@ -112,7 +112,7 @@ Example类, `selectByExample`, `updateByExample`等方法更名。 `Example` -> 
 ```
 
 ### 【XML-CLIENT】OptimisticLockAutoIncreasePlugin
-生成为乐观锁字段增加赋值操作。`insert`时赋值为0, `updateByxxx`时自动加1.
+生成为乐观锁字段增加赋值操作。`insert`时赋值为0, `updateByxxx`时自动加1. 目前不支持BaseMapperPlugin插件
 
 ```
         <table tableName="TABLE_TEST_SLICE_MONTH" domainObjectName="TableTestSliceMonth">
